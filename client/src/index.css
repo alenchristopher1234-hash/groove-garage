@@ -1,0 +1,95 @@
+:root {
+  --ink: #1b1f3b;
+  --paper: #f4f5f9;
+  --white: #ffffff;
+  --accent: #e63946;
+  --muted: #6b7088;
+  --line: #dfe2ec;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+.page { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; min-height: 80vh; }
+
+/* Navbar */
+.nav {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink); color: var(--white); padding: 14px 24px;
+  position: sticky; top: 0; z-index: 10;
+}
+.logo { font-size: 1.3rem; font-weight: 700; letter-spacing: .5px; }
+.nav nav a { margin-left: 20px; }
+.nav nav a:hover, .cart-link { color: #ffb4ba; }
+
+/* Hero */
+.hero { padding: 28px 0 8px; }
+.hero h1 { font-size: 2.6rem; margin: 0; }
+.hero p { color: var(--muted); margin-top: 6px; }
+
+/* Filters */
+.filters { margin: 18px 0; display: flex; flex-direction: column; gap: 12px; }
+input, textarea, select {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--line);
+  border-radius: 6px; font: inherit; background: var(--white);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--white); color: var(--ink); border: 1px solid var(--line); }
+.chip.active { background: var(--ink); color: var(--white); }
+
+/* Buttons */
+button {
+  background: var(--accent); color: var(--white); border: 0; padding: 9px 16px;
+  border-radius: 6px; cursor: pointer; font: inherit; font-weight: 600;
+}
+button:hover { filter: brightness(.92); }
+button:disabled { background: #b8bccb; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #7aa2ff; outline-offset: 2px;
+}
+button.small { padding: 4px 10px; margin-right: 6px; background: var(--ink); }
+button.danger { background: var(--accent); }
+
+/* Grid of cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: block; }
+.card h3 { margin: 10px 0 0; font-size: 1.05rem; }
+.row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.muted { color: var(--muted); font-size: .92rem; margin: 2px 0; }
+
+/* Album covers: a record sleeve colour per genre */
+.cover {
+  aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; background: #444;
+}
+.cover.big { font-size: 8rem; }
+.genre-Jazz { background: #274472; }
+.genre-Rock { background: #7a1f2b; }
+.genre-Electronic { background: #3a2a78; }
+.genre-Pop { background: #b4437a; }
+.genre-Classical { background: #3f6b53; }
+
+/* Product detail */
+.detail { display: grid; grid-template-columns: 320px 1fr; gap: 32px; margin-bottom: 40px; }
+
+/* Tables and forms */
+.table { width: 100%; border-collapse: collapse; background: var(--white); margin: 16px 0; }
+.table th, .table td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; }
+.qty { display: inline-block; min-width: 28px; text-align: center; }
+.form { max-width: 520px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.error { color: var(--accent); }
+.order { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; margin-bottom: 8px; }
+
+.footer { text-align: center; padding: 20px; color: var(--muted); border-top: 1px solid var(--line); }
+
+@media (max-width: 700px) {
+  .detail { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+  .table { display: block; overflow-x: auto; }
+}
